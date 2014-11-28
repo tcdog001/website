@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+        e路网
+        </title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/zepto.js "></script>
+    </head>
+    <body>
+        <div class="zjhn-hd">
+              <div class="zjhn-logo-wrap">
+                 <a href="index.html" class="zjhn-logo"></a>
+            </div>
+            <ul class="zjhn-nav">
+                <li><a href="index.html">精选</a></li>
+                <li><a href="app-choice.html">应用</a></li>
+                <li><a href="game-choice.html">游戏</a></li>
+                <li   class="active"><a  href="movie.html">视频</a></li>
+            </ul>
+            <div class="nav">
+                <ul class="b-nav">
+                    <li class="category-1"><a href="movie.html">电影</a></li>
+                    <li class="category-2"><a href="dv.html">短片</a></li>
+                    <li class="category-2 active "><a href="mtv.html">MTV</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content movie-content">
+            
+            
+            <div class="zjhn-movie-wrap  clearfix  zjhn-mtv">
+                <div class="item mtv-list" data-template><a href="{{play_url}}">
+                    <ul>
+                        <li class="movie-img"><img src="{{icon}}" width="100%" />
+                            <div class="movie-bt"></div><span class="time">{{time}}</span><span class="score"></span>
+                        </li>
+                        <li class="movie-title">{{name}}<span>{{player}}</span></li>
+                    </ul>
+                    </a>
+                </div>
+               
+               
+            </div>
+            
+            
+        </div>
+        <footer   class="footer zjhn-footer" >
+            
+            
+            <p class="copyright"></p>
+            <p class="taofontdown" style="display:none">预加载淘+字体</p>
+        </footer>
+        
+         <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function mtv(data){
+                var list=data.data;
+                Tempo.prepare( $(".mtv-list").get(0) ).render( list );
+                $(".mtv-list").show();
+            }
+        </script>
+        <script src="/static/js/mtv.json"></script>
+       
+    </body>
+    
+</html>
