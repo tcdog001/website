@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/t.js"></script>
+<script src="/static/js/gotop.js"></script>
+</head>
+<body>
+        <div class="zjhn-hd">
+            <div class="zjhn-logo-wrap"><a href="#" onClick="convertURL('index.html')" class="zjhn-logo"></a></div>
+                <div class="bdline">
+                    <span class="fl larrow"><a href="#" onClick="convertURL('index.html')">返回</a></span>
+                    <span class="fc">经典大片</span>
+                </div>
+        </div>
+        <div class="content index" data-spm="2">
+ 			<div class="fixads4"><a target="_blank"  href="vplayer.html?id=/resource/movie/video/daba/20150116/fumozhe.mp4"><img src="/resource/ad/20150116/movieads.jpg" /></a></div>
+            <div class="mcats  clearfix">
+                <div class="mlist movie-list" data-template><a href="vplayer.html?id={{play_url}}">
+                    <ul>
+                        <li class="mimg"><img src="{{icon}}" width="100%"/>
+                            <div class="mbt"></div><span class="mtime">{{time}}</span><span class="mscore">{{score}}</span>
+                        </li>
+                        <li class="mtitle">{{name}}</li>
+                        <div style="clear:both"></div>
+                    </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
+<div style="clear:both"></div>
+<div class="provi">本网所有视频均由华数传媒提供</div>
+
+<footer class="footer zjhn-footer"></footer>
+        <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function movie(data){
+                var list=data.data;
+                Tempo.prepare( $(".movie-list").get(0) ).render( list );
+                $(".movie-list").show();
+            }
+        </script>
+        <script src="/resource/json/movie/20150116/d20150116d2.json"></script>
+<div style="display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2a9f38953083e2c27e9bf0373099f08a' type='text/javascript'%3E%3C/script%3E"));
+</script></div>
+    </body>
+</html>

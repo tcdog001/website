@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+        e路网
+        </title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="static/css/main.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+			var Speed_1 = 10; //速度(毫秒)
+			var Space_1 = 20; //每次移动(px)
+			var PageWidth_1 = 125 * 2; //翻页宽度
+			var interval_1 = 5000; //翻页间隔时间
+			var fill_1 = 0; //整体移位
+			var MoveLock_1 = false;
+			var MoveTimeObj_1;
+			var MoveWay_1="right";
+			var Comp_1 = 0;
+			var AutoPlayObj_1=null;
+			function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
+			function AutoPlay_1(){clearInterval(AutoPlayObj_1);AutoPlayObj_1=setInterval('ISL_GoDown_1();ISL_StopDown_1();',interval_1)}
+			function ISL_GoUp_1(){if(MoveLock_1)return;clearInterval(AutoPlayObj_1);MoveLock_1=true;MoveWay_1="left";MoveTimeObj_1=setInterval('ISL_ScrUp_1();',Speed_1);}
+			function ISL_StopUp_1(){if(MoveWay_1 == "right"){return};clearInterval(MoveTimeObj_1);if((GetObj('ISL_Cont_1').scrollLeft-fill_1)%PageWidth_1!=0){Comp_1=fill_1-(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1);CompScr_1()}else{MoveLock_1=false}
+			AutoPlay_1()}
+			function ISL_ScrUp_1(){if(GetObj('ISL_Cont_1').scrollLeft<=0){GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft+GetObj('List1_1').offsetWidth}
+			GetObj('ISL_Cont_1').scrollLeft-=Space_1}
+			function ISL_GoDown_1(){clearInterval(MoveTimeObj_1);if(MoveLock_1)return;clearInterval(AutoPlayObj_1);MoveLock_1=true;MoveWay_1="right";ISL_ScrDown_1();MoveTimeObj_1=setInterval('ISL_ScrDown_1()',Speed_1)}
+			function ISL_StopDown_1(){if(MoveWay_1 == "left"){return};clearInterval(MoveTimeObj_1);if(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1-(fill_1>=0?fill_1:fill_1+1)!=0){Comp_1=PageWidth_1-GetObj('ISL_Cont_1').scrollLeft%PageWidth_1+fill_1;CompScr_1()}else{oveLock_1=false}
+			AutoPlay_1()}
+			function ISL_ScrDown_1(){if(GetObj('ISL_Cont_1').scrollLeft>=GetObj('List1_1').scrollWidth){GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft-GetObj('List1_1').scrollWidth}
+			GetObj('ISL_Cont_1').scrollLeft+=Space_1}
+			function CompScr_1(){if(Comp_1==0){MoveLock_1=false;return}
+			var num,TempSpeed=Speed_1,TempSpace=Space_1;if(Math.abs(Comp_1)<PageWidth_1/2){TempSpace=Math.round(Math.abs(Comp_1/Space_1));if(TempSpace<1){TempSpace=1}}
+			if(Comp_1<0){if(Comp_1<-TempSpace){Comp_1+=TempSpace;num=TempSpace}else{num=-Comp_1;Comp_1=0}
+			GetObj('ISL_Cont_1').scrollLeft-=num;setTimeout('CompScr_1()',TempSpeed)}else{if(Comp_1>TempSpace){Comp_1-=TempSpace;num=TempSpace}else{num=Comp_1;Comp_1=0}
+			GetObj('ISL_Cont_1').scrollLeft+=num;setTimeout('CompScr_1()',TempSpeed)}}
+			function picrun_ini(){
+			GetObj("List2_1").innerHTML=GetObj("List1_1").innerHTML;
+			GetObj('ISL_Cont_1').scrollLeft=fill_1>=0?fill_1:GetObj('List1_1').scrollWidth-Math.abs(fill_1);
+			GetObj("ISL_Cont_1").onmouseover=function(){clearInterval(AutoPlayObj_1)}
+			GetObj("ISL_Cont_1").onmouseout=function(){AutoPlay_1()}
+			AutoPlay_1();
+			}
+		</script>
+        <script src="/static/js/zepto.js "></script>
+    </head>
+    <body style="background:#fff" onLoad="javascript:auth()">	<div class="zjhn-hd">
+            <div class="zjhn-logo-wrap"  style="float:left"><a href="index.html" class="zjhn-logo"></a></div>
+			<div style="clear:both"></div>
+        </div>
+       
+        <div class="bdline">
+        	<span class="fl larrow"><a href="bendi.html">返回</a></span>
+            <span class="fr rarrow"><a href="../city.html">全国</a></span>
+        </div>
+        <div style="clear:both"></div>
+        
+		<div class="shanghu" data-template>
+        	<div class="shtitle">{{shopname}}</div>
+        	<div style="clear:both"></div>
+            <div class="shflash">
+            	<!-- picrotate_left start -->
+                            <div class="blk_18"><a class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></a>
+                            <div class="pcont" id="ISL_Cont_1">
+                            <div class="ScrCont">
+                            <div id="List1_1">
+                            <!-- piclist begin -->
+                            <a class="pl" href="#"><img src="{{pica}}"/></a>
+                            <a class="pl" href="#"><img src="{{picb}}"/></a>
+                            <a class="pl" href="#"><img src="{{picc}}"/></a>
+                            <a class="pl" href="#"><img src="{{picd}}"/></a>
+                            <a class="pl" href="#"><img src="{{pice}}"/></a>
+                            <a class="pl" href="#"><img src="{{picf}}"/></a>
+                            <!-- piclist end -->
+                            </div>
+                            <div id="List2_1"></div>
+                            </div>
+                            </div>
+                            <a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()" onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a></div>
+                            <div class="c"></div>
+                            <script type="text/javascript">
+                            picrun_ini()
+                            </script>
+                            <!-- picrotate_left end -->
+            </div>
+            <div class="borup">{{shopaddress}}</div>
+            <div class="borup shtel" style="height:23px"></div>
+            <div class="borup shif">
+            	<dt class="shinfo">商户信息</dt>
+                <dd>
+                	<p><span style="height:20px; width:68px; background:url(/static/image/star2.png) no-repeat; margin-right:15px"><span class="star2s" style="width:{{rank}}%"></span></span>人均:¥{{xiaofei}}</p>
+                    <p>口味:{{kouwei}} 环境:{{huanjing}} 服务:{{fuwu}}</p>
+                </dd>
+            </div>
+            <div class="borup shsrevs">
+            	<dt class="shinfos">商户服务</dt>
+                <dd>
+                <span>{{fwa}}</span>
+                <span>{{fwb}}</span>
+                <span>{{fwc}}</span>
+                <span>{{fwd}}</span>
+                <span>{{fwe}}</span>
+                <div style="clear:both"></div>
+                </dd>
+            </div>
+            
+            
+        </div>
+        <div style="clear:both"></div>
+        <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function bendis(data){
+                var list=data.data[getQueryStringValue("id")];
+                Tempo.prepare( $(".shanghu").get(0) ).render( list);
+                $(".shanghu").show();
+            }
+function getQueryStringValue(keyName){
+    var searchStr = location.search.substr(1);
+    if(searchStr.length == 0)
+        return null;
+    var collection = searchStr.split('&');
+    for(var i=0;i<collection.length;i++){
+        var tmp = collection[i].split('=');
+        if(tmp.length<2)
+            continue;
+        if(tmp[0].toUpperCase() == keyName.toUpperCase())
+            return tmp[1];
+    }
+    return null;
+} 
+        </script>
+        <script src="/static/js/bendis.json"></script>
+
+    <div style=" height:20px;clear:both"></div>
+    <footer   class="footer zjhn-footer" >
+            <p class="copyright"></p>
+            <p class="taofontdown" style="display:none">预加载淘+字体</p>
+        </footer>
+                <script>
+               function auth() {
+				$.ajax({
+					method: 'post',
+					url: 'nochkCode.php', 
+					dataType: 'json',
+					success: function(data) {
+					  if(data['code'] != 'ok') {
+							$('#authmsg').text('系统繁忙，请重新认证进入!');
+						}
+						else {
+						 var msg="";//<font color='red'><b>您已成功认证，可以畅游互联网！</b></font>
+							$('#authmsg').html(msg);
+						}
+						//$('#notice_div').show();
+					}
+				});
+			}
+			function closeTips(){
+			    	$('#notice_div').hide();
+			}
+            </script>
+    </body>
+</html>

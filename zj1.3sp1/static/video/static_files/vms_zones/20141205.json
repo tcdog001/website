@@ -1,0 +1,18 @@
+{
+    "start_AD": {
+    "resource": [
+        {
+            "name": "前贴片",
+            "id": "76",
+            "duration": "35",
+            "type": "video",
+            "link": "/adclick.php?bannerid=76&amp;placeid=16&amp;materialid=60&amp;zoneid=16&amp;source=&amp;dest=http%3A%2F%2Fgoogle.com",
+            "address": "/static/video/static_files/materials/20141205/tiepian_9s.mp4",
+            "height": "250",
+            "width": "350",
+            "logurl": "/adlog.php?bannerid=76&amp;clientid=0&amp;zoneid=16&amp;block=0&amp;capping=0&amp;cb=46885717d6f344da6ae36b7a9a56e595"
+        }
+    ],
+    "id": "76"
+    }
+}

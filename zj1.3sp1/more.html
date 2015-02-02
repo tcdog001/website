@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.10.2.min.js "></script>
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/t.js"></script>
+<script src="/static/js/gotop.js"></script>
+<script src="/static/js/tempo.min.js"></script>
+</head>
+<body>
+<div class="zjhn-hd">
+	<div class="zjhn-logo-wrap" class="fl"><a href="#" onClick="convertURL('index.html')" class="zjhn-logo"></a></div>
+	<div class="fr"><span class="rebtn"><a href="#" onClick="convertURL('safevideo.html')">道路安全宣传视频</a></span></div>
+	<div style="clear:both"></div>
+	<ul class="zjhn-nav">
+    	<li><a href="#" onClick="convertURL('index.html')">影视</a></li>
+        <li><a href="#" onClick="convertURL('game.html')">游戏</a></li>
+        <li><a href="#" onClick="convertURL('app.html')">应用</a></li>
+        <li class="active"><a href="#" onClick="convertURL('more.html')">更多</a></li>
+	</ul>
+    <div style="clear:both"></div>
+    <div class="tips">
+    	<span class="tipsa">【温馨提示】</span>
+        <span class="fl">欢迎使用E路网！</span>
+        <span class="help"><a href="#" onClick="convertURL('help.html')" class="tiphlp">帮助</a></span>
+    </div>
+
+</div>
+
+<!--电影分类-->
+<div style="height:20px; clear:both"></div>
+<div class="b-title">
+	<h2>热映大片<span class="fl-title"><a href="#" onClick="convertURL('mmore.html')">更多...</a></span></h2>
+    <ul class="separated"><li class="dividing-wrap"><ul class="dividing dividing-line"><li class="recommend"></li><li class="toplist"></li><li class="category"></li><li class="taobao"></li></ul></li></ul><!--文字下面彩色-->
+    <div class="mcats clearfix">
+		<div class="mlist  movie"  data-template>
+        	<a href="vplayer.html?id={{play_url}}">
+            <ul>
+            	<li class="mimg"><img src="{{icon}}" width="100%"/>
+                <div class="mbt"></div><span class="mtime">{{time}}</span><span class="mscore">{{score}}</span>
+                </li>
+                <li class="mtitle">{{name}}</li>
+            	<div style="clear:both"></div>
+            </ul>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="fixads4"><a href="/resource/game/360/daotachuanqi.apk"><img src="/resource/ad/20150116/gameads.jpg" /></a></div>
+<div style="height:20px; clear:both"></div>
+
+<script>
+function vmore(data){
+	var list=data.data;
+	Tempo.prepare( $(".movie").get(0) ).render( list );
+	$(".movie").show();
+	}
+</script>
+<script src="/resource/json/movie/20150116/vmore.json"></script>  
+<!--电影分类结束-->
+
+<!--游戏分类-->
+<div class="b-title">
+	<h2>游戏推荐<span class="fl-title"><a href="#" onClick="convertURL('gmore.html')">更多...</a></span></h2>
+    <ul class="separated"><li class="dividing-wrap"><ul class="dividing dividing-line"><li class="recommend"></li><li class="toplist"></li><li class="category"></li><li class="taobao"></li></ul></li></ul><!--文字下面彩色-->
+    <div class="mcats clearfix">
+        <div class="app-list game" data-template>
+            <ul class="item">
+            <li class="logo"><img src="{{icon}}" /></li>
+            <li class="title">{{name}}</li>
+            <li class="star"><span class="icon icon-star"><i style="width:{{rank}}%"></i></span></li>
+            <li class="download-size"><span>{{download_times}}次下载 </span><span class="separate">|</span><span>{{size}}</span></li>
+            <li class="discription">{{brief|truncate 20}}</li>
+            <li class="link"><a href="{{download_link}}"></a></li>
+            <li class="download"><a class="download-btn" href="{{download_link}}">下载</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+function gmore(data){
+	var list=data.data;
+	Tempo.prepare( $(".game").get(0) ).render( list );
+	$(".game").show();
+	}
+</script>
+<script src="/resource/json/game/20150116/gmore.json"></script>
+<!--game end-->
+<div style="clear:both"></div>
+<div class="fixads4"><a href="/resource/ad/gg/tongchengmiliao.apk"><img src="/resource/ad/20150116/app.jpg" /></a></div>
+<div style="height:20px; clear:both"></div>
+
+<!--应用分类-->
+<div class="b-title">
+	<h2>应用推荐<span class="fl-title"><a href="#" onClick="convertURL('amore.html')">更多...</a></span></h2>
+    <ul class="separated"><li class="dividing-wrap"><ul class="dividing dividing-line"><li class="recommend"></li><li class="toplist"></li><li class="category"></li><li class="taobao"></li></ul></li></ul><!--文字下面彩色-->
+    <div class="mcats clearfix">
+        <div class="app-list app" data-template>
+            <ul class="item">
+            <li class="logo"><img src="{{icon}}" /></li>
+            <li class="title">{{name}}</li>
+            <li class="star"><span class="icon icon-star"><i style="width:{{rank}}%"></i></span></li>
+            <li class="download-size"><span>{{download_times}}次下载 </span><span class="separate">|</span><span>{{size}}</span></li>
+            <li class="discription">{{brief|truncate 20}}</li>
+            <li class="link"><a href="{{download_link}}"></a></li>
+            <li class="download"><a class="download-btn" href="{{download_link}}">下载</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+function amore(data){
+	var list=data.data;
+	Tempo.prepare( $(".app").get(0) ).render( list );
+	$(".app").show();
+	}
+</script>
+<script src="/resource/json/soft/20150116/amore.json"></script>
+<!--app end-->
+
+<footer class="footer zjhn-footer" ></footer>
+</body>
+</html>

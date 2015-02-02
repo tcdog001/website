@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+        e路网
+        </title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/zepto.js "></script>
+    </head>
+    <body>
+        <header class="head zjhn-hd-list">
+            <div class="title-bar" data-spm="4">
+                <a class="goback J_GoBack" href="game-cates.html">
+                <i class="icon icon-back"></i></a>
+                <a href="index.html" class="goHome icon icon-home"></a>
+                <span class="title" id="J_title"></span></div>
+        </header>
+        
+        <div class="content">
+            
+             <div class="app-list" data-template>
+                <ul class="item">
+                    <li class="logo"><img src="{{icon}}" /></li>
+                    <li class="title">{{name}}</li>
+                    <li class="star">    <span class="icon icon-star"><i style="width:{{rank}}%"></i></span>
+                    </li>
+                    <li class="download-size"><span>
+                        {{download_times}}次下载
+                    </span><span class="separate">|</span><span>{{size}}</span></li>
+                    <li class="discription">{{brief}}</li>
+                    <li class="link"><a href="{{download_link}}"></a></li>
+                    <li class="download"><a class="download-btn" href="{{download_link}}" >下载</a></li>
+                </ul>
+                
+            </div>
+            
+            
+        </div>
+        <footer   class="footer zjhn-footer" >
+            
+            
+            <p class="copyright"></p>
+            <p class="taofontdown" style="display:none">预加载淘+字体</p>
+        </footer>
+        
+         <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function category_detail(data){
+                var list=data.data;
+                Tempo.prepare( $(".app-list").get(0) ).render( list );
+                $(".app-list").show();
+            }
+            
+        </script>
+        
+        <script>
+        //添加标题
+        var pamar=location.search.replace("?","").split("&");
+        var i,ii=pamar.length;
+        for(i=0;i<ii;i++){
+            var _ht=pamar[i].split("=");
+            if(_ht[0]=="title"){
+                $("#J_title").html(decodeURI(_ht[1]));
+            }
+            if(_ht[0]=="url"){
+                //$("#J_jsonp").get(0).src='http://10.125.14.3/assets/js/'+_ht[1]+'.json?jj';
+                var oHead = document.getElementsByTagName('head').item(0); 
+                var oScript= document.createElement("script"); 
+                oScript.type = "text/javascript"; 
+                oScript.src='/static/js/'+_ht[1]+'.json';
+                oHead.appendChild( oScript); 
+                
+            }
+            
+        }
+        
+        </script>
+        
+    </body>
+    
+</html>

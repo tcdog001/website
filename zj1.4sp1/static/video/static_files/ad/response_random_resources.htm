@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<style type=text/css>
+body,html {
+	margin: 0px;padding:0px;
+}
+</style>
+<meta content="MSHTML 6.00.6000.16825" name=GENERATOR></meta>
+<body>
+<div id="PHPADM_ZONE"></div>
+<script type="text/javascript">
+var Request=new QueryString();
+var width =Request["w"];
+var height = Request["h"];
+var logo1 = Request["s_url"].split(",");
+var link1 = Request["s_link"].split(",");
+var total = logo1.length;
+var s_second = Request["s_second"];
+var imgs = [];
+var interval;
+function QueryString()
+{
+	var name,value,i;
+	var str=location.href;
+	var num=str.indexOf("?")
+	str=str.substr(num+1);
+	var arrtmp=str.split("&");
+	for(i=0;i < arrtmp.length;i++)
+	{
+	   num=arrtmp[i].indexOf("=");
+	   if(num>0)
+	   {
+		   name=arrtmp[i].substring(0,num);
+		   value=arrtmp[i].substr(num+1);
+		   this[name]=value;
+	   }
+	}
+}
+function init(id)
+{
+  var i;
+  for (i=0;i<total;i++) {
+      imgs[i]=new Image();
+      imgs[i].src=logo1[i];
+	  imgs[i].id = id + "_" + i;
+  }
+}
+function theImg(img,imglink,width,height)
+{
+	var element = document.getElementById('PHPADM_ZONE');
+	var ext = img.split('.').pop();
+    if(ext.toLowerCase() == 'swf') {
+    	element.innerHTML = '<object width="'+width+'" height="'+height+'" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#4,0,0,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param value="'+img+'" name="movie"><param value="high" name="quality"><param value="always" name="allowScriptAccess"><param value="transparent" name="wmode"><embed width="'+width+'" height="'+height+'" allowscriptaccess="always" pluginspace="http://www.adobe.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" quality="high" src="'+img+'"></object>';
+    } else {
+    	if(document.links && document.links.length > 0) {
+    		var link = document.links[0];
+        	link.parentNode.removeChild(link);
+    	}
+    	element.innerHTML = '<a href="'+imglink+'" target="_blank">'+'<img src="'+img+'" border="0" width="'+width+'" height="'+height+'"></a>';
+    }
+}
+init('random_ad');
+var j = parseInt(Math.random()*total);
+/* 展示广告效果 */
+(function Startshow(img_second,j) {
+	clearTimeout(interval);
+	if(j == imgs.length) j = 0;
+	theImg(imgs[j].src,link1[j],width,height);
+	interval = setTimeout(function(){
+		Startshow(img_second,j+1);
+	},img_second*1000);
+})(s_second,j);
+</script>
+</body>
+</html>

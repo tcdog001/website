@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>e路网</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/zepto.js "></script>
+        <style>
+		body{background:#3b95dc; overflow:hidden}
+        input[type="button"] {border-radius: 5px 5px 5px 5px;padding:10px 0}
+        </style>
+    <link href="/static/video/assets/chnvideo-player.css" rel="stylesheet">
+    <link href="/static/video/assets/chnvideo-ads-library.css" rel="stylesheet">
+<script>function turnoff(obj){document.getElementById(obj).style.display="none";}//关闭浮层</script>
+<script>setTimeout(function(){document.getElementById("vd").style.display = "none"},6000)//视频贴片倒计时显示</script>
+<script>setTimeout(function(){document.getElementById("vds").style.display = "none"},6000)//视频贴片倒计时显示</script>
+    </head>
+    <body>
+        <div class="zjhn-hd"><div class="zjhn-logo-wrap"><a href="index.html"><img src="/static/image/logo.png" width="96" /></a><span class="fhs"><a href="javascript:history.go(-1)" class="fh">返回</a></span></div></div>
+        <div class="cons">
+        	<div class="shipin2"></div>
+            <div class="pos">
+            <div id="pack"></div>
+            <span class="djsdetail" id="vds">广告剩余<span id="djs">6</span>秒</span>
+            <span class="posdetail" id="vd"><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DXfbm2pgKf2%252B6k0Or%252B%252BH4tORHx5rgqw%252Bh%252Fu2ibf7AQV2LltG5xFicOdXrTUTgh9sMDPIwxrc30rgx5xFFx04TdbL1ZGp37lbNHF4%252BlldGvtJW3A6HbkRyi1Rmtaud%252B0v%252B5hKrcVBo5GUO0y6uvBVKRA%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_103168135_8092090_28300429"><p>查看详情 ></p></a><span id="dd" style="display:none">6</span></span>
+            </div>
+<!--video start-->
+<script type="text/javascript" src="/static/video/assets/fingerprint.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-player.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-ads-library.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-ads.js"></script>
+<script type="text/javascript">
+function getQueryStringValue(keyName){
+	
+    var searchStr = location.search.substr(1);
+    if(searchStr.length == 0)
+        return null;
+    var collection = searchStr.split('&');
+    for(var i=0;i<collection.length;i++){
+        var tmp = collection[i].split('=');
+        if(tmp.length<2)
+            continue;
+        if(tmp[0].toUpperCase() == keyName.toUpperCase())
+            return tmp[1];
+    }
+    return null;
+} 
+
+var chnvideo_player_options = {
+    video_content_url : "",
+    ad_json_url : "/static/video/static_files/vms_zones/201412052.json",
+    log_options : {
+        video_id : 100,
+        video_title : "测试",
+        category_id : 3,
+        video_category : "新闻",
+        bus_id : "1"
+    }
+};
+//console.log(getQueryStringValue(id)));
+chnvideo_player_options.video_content_url=getQueryStringValue("id");
+
+var chnvideoplayer = new Chnvideo_player(chnvideo_player_options);
+chnvideoplayer.create_player("pack");
+</script>
+<!--video end-->
+<script type="text/javascript">
+function run(){
+ var s = document.getElementById("dd");
+ if(s.innerHTML == 0){
+  return false;
+ }
+ s.innerHTML = s.innerHTML * 1 - 1;
+}
+window.setInterval("run();", 1000);
+</script>
+<script type="text/javascript">
+function runs(){
+ var s = document.getElementById("djs");
+ if(s.innerHTML == 0){
+  return false;
+ }
+ s.innerHTML = s.innerHTML * 1 - 1;
+}
+window.setInterval("runs();", 1000);
+</script>
+        </div>
+<div class="fhv"><a href="index.html">返回视频首页</a></div>
+<div style="display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F53e753f5a37d8a20d93591f4dcbfbc88' type='text/javascript'%3E%3C/script%3E"));
+</script></div>
+    </body>
+</html>

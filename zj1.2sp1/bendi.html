@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>e路网</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/zepto.js "></script>
+    </head>
+    <body style="background:#fff" onLoad="javascript:auth()">
+    	<div class="zjhn-hd">
+            <div class="zjhn-logo-wrap"  style="float:left"><a href="index.html" class="zjhn-logo"></a></div>
+			<div style="clear:both"></div>
+        </div>
+		
+        
+        <div class="bdline">
+        	<span class="fl larrow"><a href="index.html">返回</a></span>
+            <span class="fr rarrow"><a href="../city.html">全国</a></span>
+        </div>
+        <!--吃住开始-->
+        <div class="czwlg">
+            <div class="czwlgl"><a href="bendi_a.html?lx=z"><img src="static/image/zhu.png"></a></div>
+            <div class="czwlgr">
+            	<a href="bendi_b.html?lx=c"><img src="static/image/chi.png"></a>
+                <a href="bendi_c.html?lx=w"><img src="static/image/wan.png"></a>
+                <a href="bendi_d.html?lx=l"><img src="static/image/le.png"></a>
+                <a href="bendi_e.html?lx=g"><img src="static/image/gou.png"></a>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    <div class="clove">猜你喜欢</div>
+        <div class="bdlovelist" data-template>
+        	<ul>
+            	<li>
+                <dt><a href="shlist.html?id={{id}}"><img src="{{pica}}"></a></dt>
+                <dd>
+                <a href="shlist.html?id={{id}}">
+                <p class="showpart">{{shopname}}</p>
+                <p class="clovef10">【{{aread}} {{weizhi}}】{{caixi}}{{fengge}}</p>
+                <p class="clovep"><span class="star2" style="width:{{rank}}%"></span></p>
+                <p><span class="clovef9">人均:</span><span class="clovecutp">{{xiaofei}}</span><span class="clovef9">元</s></span></p>
+                </a></dd>
+                </li>
+            </ul>
+        </div>
+       <div style="clear:both"></div>
+
+        <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function bendis(data){
+                var list=data.data;
+                Tempo.prepare( $(".bdlovelist").get(0) ).render( list );
+                $(".bdlovelist").show();
+            }
+        </script>
+        <script src="/static/js/bendis.json"></script>
+ <div style=" height:20px;clear:both"></div>
+        <footer   class="footer zjhn-footer" >
+            <p class="copyright"></p>
+            <p class="taofontdown" style="display:none">预加载淘+字体</p>
+        </footer>
+        <script>
+               function auth() {
+				$.ajax({
+					method: 'post',
+					url: 'nochkCode.php', 
+					dataType: 'json',
+					success: function(data) {
+					  if(data['code'] != 'ok') {
+							$('#authmsg').text('系统繁忙，请重新认证进入!');
+						}
+						else {
+						 var msg="";//<font color='red'><b>您已成功认证，可以畅游互联网！</b></font>
+							$('#authmsg').html(msg);
+						}
+						//$('#notice_div').show();
+					}
+				});
+			}
+			function closeTips(){
+			    	$('#notice_div').hide();
+			}
+            </script>
+<div style="display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3fa23e493dc8681704a5cf14630e47e3' type='text/javascript'%3E%3C/script%3E"));
+</script></div>
+    </body>
+</html>

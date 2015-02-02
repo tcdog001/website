@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/t.js"></script>
+<script src="/static/js/gotop.js"></script>
+</head>
+<body>
+<div class="zjhn-hd"><div class="zjhn-logo-wrap"  class="fl"><a href="#" onClick="convertURL('index.html')" class="zjhn-logo"></a></div><div class="fr"><span class="rebtn"><a href="safevideo.html">道路安全宣传视频</a></span></div><div style="clear:both"></div></div>
+<div class="bdlines">
+    <span class="fl larrows"><a href="bendi.html">返回</a></span>
+</div>
+<div style="clear:both"></div>
+        <!--吃住开始-->
+        <div class="czwlg2">
+        	<a href="bendi_a.html?lx=z">住<span>Hotel</span></a>
+            <a href="bendi_b.html?lx=c">吃<span>Eat</span></a>
+            <a href="bendi_c.html?lx=w">玩<span>Tour</span></a>
+            <a href="bendi_d.html?lx=l" id="curt">乐<span>Game</span></a>
+            <a href="bendi_e.html?lx=g" style="border:none; width:18.6%">购<span>Shop</span></a>
+        </div>
+        <div style="clear:both"></div>
+
+        <div class="bdlovelist" data-template>
+        	<ul>
+            	<li>
+                <dt><a href="shlist.html?id={{id}}"><img src="{{pica}}"></a></dt>
+                <dd><a href="shlist.html?id={{id}}">
+                <p class="showpart">{{shopname}}</p>
+                <p class="clovef10">【{{weizhi}}】{{caixi}}{{fengge}}</p>
+                <p class="clovep"><img src="/static/image/pinglun.png"></p>
+                <p><span class="clovef9">人均：</span><span class="clovecutp">{{xiaofei}}</span><span class="clovef9">&nbsp;元</span></p></a>
+                </dd>
+                
+                </li>
+                
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+        <script src="/static/js/tempo.min.js"></script>
+        <script>
+            function bendis(data){
+                var list=data.data;
+				var newlist=new Array();
+				var i=0;
+				var j=0;
+				for(i=0;i<list.length;i++)
+				{
+					if(list[i].xiangmu=='l')
+					{
+						console.log(list[i].xiangmu);
+						newlist[j]=list[i];
+						j++
+					}
+				}
+				
+                Tempo.prepare( $(".bdlovelist").get(0) ).render( newlist );
+                $(".bdlovelist").show();
+            }
+        </script>
+        <script src="/resource/json/bendi/20150116/bendis.json"></script>
+<div style=" height:20px;clear:both"></div>
+    <footer class="footer zjhn-footer" >
+    <p class="copyright"></p>
+    <p class="taofontdown" style="display:none">预加载淘+字体</p>
+</footer>
+    </body>
+</html>
