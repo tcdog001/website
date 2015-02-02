@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/t.js"></script>
+<script src="/static/js/gotop.js"></script>
+</head>
+<body>
+<div class="zjhn-hd">
+	<div class="zjhn-logo-wrap"><a href="#" onClick="convertURL('index.html')" class="zjhn-logo"></a></div>
+	<div class="fr"><span class="rebtn"><a href="#" onClick="convertURL('safevideo.html')">道路安全宣传视频</a></span></div>
+    <div class="bdline">
+        <span class="fl larrow"><a href="#" onClick="convertURL('app.html')">返回</a></span>
+        <span class="fc">影音图像</span>
+    </div>
+</div>
+<div class="content index" data-spm="2">
+<div class="fixads4"><a href="/resource/soft/other/20141222/tongchengmiliao.apk"><img src="/resource/ad/20150116/app.jpg" /></a></div>
+<div class="app-list" data-template>
+    <ul class="item">
+    <li class="logo"><img src="{{icon}}" /></li>
+    <li class="title">{{name}}</li>
+    <li class="star"><span class="icon icon-star"><i style="width:{{rank}}%"></i></span></li>
+    <li class="download-size"><span>{{download_times}}次下载 </span><span class="separate">|</span><span>{{size}}</span></li>
+    <li class="discription">{{brief|truncate 20}}</li>
+    <li class="link"><a href="{{download_link}}"></a></li>
+    <li class="download"><a class="download-btn" href="{{download_link}}">下载</a></li>
+    </ul>
+</div>
+</div>    
+<div style="clear:both"></div>
+<script src="/static/js/tempo.min.js"></script>
+<script>
+function app(data){
+	var list=data.data;
+	Tempo.prepare( $(".app-list").get(0) ).render( list );
+	$(".app-list").show();
+	}
+</script>
+<script src="/resource/json/soft/20150116/a20150116b2.json"></script>
+
+<footer class="footer zjhn-footer"></footer> 
+<div style="display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa654aedbf97ae2ccdfcb6413264c9dc0' type='text/javascript'%3E%3C/script%3E"));</script></div>
+    </body>
+</html>
