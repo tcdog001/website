@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/zepto.js "></script>
+        <style>
+		body{ background:#3b95dc}
+        input[type="button"] {border-radius: 5px 5px 5px 5px;padding:5px 0}
+		.confirms a{display:block;width:260px;height:30px; line-height:30px;text-align:center; font-size:14px; background:#ddd;margin:0 auto;}
+        </style>
+    <link href="/static/video/assets/chnvideo-player.css" rel="stylesheet">
+    <link href="/static/video/assets/chnvideo-ads-library.css" rel="stylesheet">
+<script>function turnoff(obj){document.getElementById(obj).style.display="none";}//关闭浮层</script>
+<script>setTimeout(function(){document.getElementById("vd").style.display = "none"},10000)//视频贴片倒计时显示</script>
+<!--选中按钮可选 start-->
+<script language="javascript">
+function agree(){
+	if(document.getElementById('cb').checked)
+		document.getElementById('tj').disabled=false;
+	else
+        document.getElementById('tj').disabled='disabled';
+		x=document.getElementById('tj')
+		x.style.color="#000000";
+	}
+</script>
+<!--选中按钮可 end选-->
+    </head>
+    <body>
+        <div class="zjhn-hd">
+            <div class="zjhn-logo-wrap"><a href="index.html"><img src="/static/image/logo.png" width="96" /></a></div>
+        </div>
+        <div class="cons">
+        	<div class="shipin">全国客运安全宣传视频</div>
+            <div class="pos">
+            <div id="pack"></div>
+            <span class="posdetail" id="vd"><a href="/resource/game/360/shikonglieren.apk"><p>查看详情 ></p></a><span id="dd" style="display:none">10</span></span>
+            </div>
+<!--video start-->
+<script type="text/javascript" src="/static/video/assets/fingerprint.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-player.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-ads-library.js"></script>
+<script type="text/javascript" src="/static/video/assets/chnvideo-ads.js"></script>
+<script type="text/javascript">
+var chnvideo_player_options = {
+    video_content_url : "/resource/safe_video.mp4",
+    ad_json_url : "/static/video/static_files/vms_zones/20141205.json",
+    log_options : {
+        video_id : 100,
+        video_title : "测试",
+        category_id : 3,
+        video_category : "新闻",
+        bus_id : "1"
+    }
+};
+var chnvideoplayer = new Chnvideo_player(chnvideo_player_options);
+chnvideoplayer.create_player("pack");
+</script>
+<!--video end-->
+<script type="text/javascript">
+function run(){
+ var s = document.getElementById("dd");
+ if(s.innerHTML == 0){
+  return false;
+ }
+ s.innerHTML = s.innerHTML * 1 - 1;
+}
+window.setInterval("run();", 1000);
+</script>
+        </div>
+        <!---->
+        <div class="confirms"><a href="index.html">返回首页</a></div>        
+        <!---->
+ <script>
+               function auth() {
+				$.ajax({
+					method: 'post',
+					url: 'nochkCode.php', 
+					dataType: 'json',
+					success: function(data) {
+					  if(data['code'] != 'ok') {
+							$('#authmsg').text('系统繁忙，请重新认证进入!');
+						}
+						else {
+						 var msg="<font color='red'><b>您已成功认证，可以畅游互联网！</b></font>";
+							$('#authmsg').html(msg);
+						}
+						$('#notice_div').show();
+					}
+				});
+			}
+			function closeTips(){
+			    	$('#notice_div').hide();
+			}
+</script>
+<script>
+       function gotoindex(){
+            window.location='./index.html'
+       }     
+</script>
+<div style=" display:none"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff1247b7c9d951b156cc27491b154ea67' type='text/javascript'%3E%3C/script%3E"));
+</script></div>
+    </body>
+</html>
