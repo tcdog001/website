@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>e路网</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.10.2.min.js "></script>
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/tempo.min.js"></script>
+</head>
+<body onLoad="gst();auth()">
+<div class="zjhn-hd">
+	<div class="zjhn-logo-wrap" class="fl"><a href="#" onClick="convertURL('index.html')" class="zjhn-logo"></a></div>
+	<div class="fr"><span class="rebtn"><a href="#" onClick="convertURL('safevideo.html')">道路安全宣传视频</a></span></div>
+	<div style="clear:both"></div>
+	<ul class="zjhn-nav">
+    	<li class="active"><a href="#" onClick="convertURL('index.html')">影视</a></li>
+        <li><a href="#" onClick="convertURL('game.html')">游戏</a></li>
+        <li><a href="#" onClick="convertURL('app.html')">应用</a></li>
+        <li><a href="#" onClick="convertURL('more.html')">更多</a></li>
+	</ul>
+	<div style="clear:both"></div>
+    <div class="tips">
+    	<span class="tipsa">【温馨提示】</span>
+        <span class="fl" id="tips"></span>
+        <span><a href="#" onClick="convertURL('help.html')" class="tiphlp">帮助</a></span>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<!--轮番start-->
+<div class="flexslider">
+	<ul class="slides">
+    <li><a href="http://c.360doo.com/IR.aspx?c=3845&s=2573&p=15812&a=30&v=894DB3182CE2096ABF1B3131BF5D3FBDDAE7CA7494097E1B73721228A1808680073561B107ED8D8E3E29A1EA3BEA8DEE"><img src="/resource/ad/20150116/bankb.jpg"></a></li>
+    <li><a href="/resource/game/360/manghuangji.apk"><img src="/resource/ad/20150116/lha.jpg" /></a></li>
+    <li><a href="http://go.uc.cn/page/hao/business?source=Elsm"><img src="/resource/ad/20150116/lhc.jpg" ></a></li>
+    </ul>
+</div>
+<script defer src="/static/js/flash.js"></script> 
+<script type="text/javascript">
+    $(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+</script>
+<!--轮番end-->
+
+
+<!--电影分类1-->  
+<div class="b-title">
+	<h2>电影<span class="fl-title"><a href="movies.html?title=电影&url=d20150116a2">更多...</a></span></h2>
+    <ul class="separated"><li class="dividing-wrap"><ul class="dividing dividing-line"><li class="recommend"></li><li class="toplist"></li><li class="category"></li><li class="taobao"></li></ul></li></ul><!--文字下面彩色-->
+    <div class="mcats clearfix">
+		<div class="mlist movie-list"  data-template>
+        	<a href="vplayer.html?id={{play_url}}">
+            <ul>
+            	<li class="mimg"><img src="{{icon}}" width="100%"/>
+                <div class="mbt"></div><span class="mtime">{{time}}</span><span class="mscore">{{score}}</span>
+                </li>
+                <li class="mtitle">{{name}}</li>
+            	<div style="clear:both"></div>
+            </ul>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function movie(data){
+	var list=data.data;
+	Tempo.prepare( $(".movie-list").get(0) ).render( list );
+	$(".movie-list").show();
+	}
+</script>
+<script src="/resource/json/movie/20150116/d20150116a1.json"></script>
+<div style="clear:both"></div>
+<div class="fixads4"><a href="vplayer.html?id=/resource/movie/video/fumozhe.mp4"><img src="/resource/ad/20150116/movieads.jpg" /></a></div>
+<div style="clear:both; height:20px"></div>
+<!--电影分类2-->
+<div class="b-title">
+	<h2>短片<span class="fl-title"><a href="movies2.html?title=短片&url=d20150116b2">更多...</a></span></h2>
+    <ul class="separated"><li class="dividing-wrap"><ul class="dividing dividing-line"><li class="recommend"></li><li class="toplist"></li><li class="category"></li><li class="taobao"></li></ul></li></ul><!--文字下面彩色-->
+    <div class="mcats clearfix">
+		<div class="mlist  movie-list2"  data-template>
+        	<a href="vplayer.html?id={{play_url}}">
+            <ul>
+            	<li class="mimg"><img src="{{icon}}" width="100%"/>
+                <div class="mbt"></div><span class="mtime">{{time}}</span><span class="mscore">{{score}}</span>
+                </li>
+                <li class="mtitle">{{name}}</li>
+            	<div style="clear:both"></div>
+            </ul>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+function movie(data){
+	var list=data.data;
+	Tempo.prepare( $(".movie-list2").get(0) ).render( list );
+	$(".movie-list2").show();
+	}
+</script>
+<script src="/resource/json/movie/20150116/d20150116b1.json"></script>
+<!--2-->
+<div style="clear:both"></div>
+<div class="provi">本网所有视频均由华数传媒提供</div>
+
+<!--foot btn-->
+<div id="jsq" class="ceng">
+	<div class="btn">
+    <a href="#" id="tc" onClick="auth();cli()">点我上网</a>
+    </div>
+</div>
+<!--foot btn-->
+
+<!---->
+<script>
+function auth() {
+	$.ajax({
+	method: 'post',
+	url: 'nochkCode.php', 
+	dataType: 'json',
+	success: function(data) {}
+		});
+	}
+function gst() {
+	$.ajax({
+	method: 'post',
+	url: 's.php', 
+	dataType: 'json',
+	success: function(data) {
+		if(data['code'] == '1') {
+			$('#tips').text('流量超出！');
+			overflow();
+		}
+		else if(data['code'] == '2') {
+			$('#tips').text('上网时长到！');
+			timeup();
+		}
+		else if(data['code'] == '3') {
+			$('#tips').text('网络缓慢！');
+			weak();
+		}
+		else {
+			var msg="<font color='red'>&nbsp;&nbsp;欢迎使用E路网！</font>";
+			$('#tips').html(msg);
+		}
+		$('#notice_div').show();
+		}
+		});
+	}
+function overflow(){
+	$(document).ready(function(){
+		popWin("detail1");	
+	})	
+}
+function timeup(){
+	
+	$(document).ready(function(){
+		popWin("detail2");	
+	})
+}
+
+function weak(){
+	
+	$(document).ready(function(){
+		popWin("detail3");	
+	})
+}
+</script>
+<!--弹出提示开始-->
+<div id="tan">
+	<div class="tit"><span>全国道路客运安全宣传网</span></div>
+	<p style="text-align:center; height:30px; line-height:30px">认证中，请稍后...</p>
+    <div style="text-align:center;font-size:12px;color:#333; height:25px; line-height:25px">您即将离开车内平台，进入E路网首页免费上网！</div>
+    <div style="text-align:center;font-size:12px;color:#333; height:25px; line-height:25px">如遇信号弱网络中断，您可在浏览器地址栏输入</div>
+    <div style="text-align:center;font-size:12px;color:#333; font-weight:bold; color:#f00; font-size:16px">www.9797168.com</div>
+    <div style="text-align:center;font-size:12px;color:#333; height:25px; line-height:25px">返回车内娱乐平台免流量看大片下游戏！</div>
+    <div style="text-align:center"><a href="http://c.360doo.com/IR.aspx?c=3845&s=2573&p=15812&a=30&v=894DB3182CE2096ABF1B3131BF5D3FBDDAE7CA7494097E1B73721228A1808680073561B107ED8D8E3E29A1EA3BEA8DEE"><img src="/resource/ad/20150116/banka.png"/></a></div>
+</div>
+<!--弹出提示结束-->
+<!--流量-->
+<div id="detail1">
+	<div class="tit">全国道路客运安全宣传网<i class="close help"><img src="/static/image/closes.png"></i></div>
+<div>
+	<a href="default.html"><div class="tbg">您的流量已经使用完毕，</div></a>
+    <div style="text-align:center"><a href="http://c.360doo.com/IR.aspx?c=3845&s=2573&p=15812&a=30&v=894DB3182CE2096ABF1B3131BF5D3FBDDAE7CA7494097E1B73721228A1808680073561B107ED8D8E3E29A1EA3BEA8DEE"><img src="/resource/ad/20150116/tad.jpg" /></a></div>
+</div>
+</div>
+<!--流量-->
+<!--时长-->
+<div id="detail2">
+	<div class="tit">全国道路客运安全宣传网<i class="close help"><img src="/static/image/closes.png"></i></div>
+<div>
+	<a href="default.html"><div class="tbg">您的上网时长已到，</div></a>
+    <div style="text-align:center"><a href="http://c.360doo.com/IR.aspx?c=3845&s=2573&p=15812&a=30&v=894DB3182CE2096ABF1B3131BF5D3FBDDAE7CA7494097E1B73721228A1808680073561B107ED8D8E3E29A1EA3BEA8DEE"><img src="/resource/ad/20150116/tad.jpg" /></a></div>
+</div>
+</div>
+<!--时长-->
+<!--信号-->
+<div id="detail3">
+	<div class="tit">全国道路客运安全宣传网<i class="close help"><img src="/static/image/closes.png"></i></div>
+<div>
+	<a href="default.html"><div class="tbg">当前信号较弱，</div></a>
+    <div style="text-align:center"><a href="http://c.360doo.com/IR.aspx?c=3845&s=2573&p=15812&a=30&v=894DB3182CE2096ABF1B3131BF5D3FBDDAE7CA7494097E1B73721228A1808680073561B107ED8D8E3E29A1EA3BEA8DEE"><img src="/resource/ad/20150116/tad.jpg" /></a></div>
+</div>
+</div>
+<!--信号-->
+
+<!--弹出提示结束-->
+<footer class="footer zjhn-footer"></footer>
+<!--非必要js-->
+<script type="text/javascript">
+$(document).ready(function(){	$("#tc").click(function(){popWin("tan");})}) 
+    function gotoindex(){window.location='http://portal.9797168.com'}  
+	function cli(){setTimeout('gotoindex()',6000);}
+</script>
+<script src="/static/js/t.js"></script>
+<script src="/static/js/gotop.js"></script>
+<script src="/static/js/tc.js"></script>
+<!--非必要js end-->
+</body>
+</html>
